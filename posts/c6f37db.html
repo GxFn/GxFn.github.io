@@ -20,29 +20,27 @@
 
 <script class="next-config" data-name="main" type="application/json">{"hostname":"gaoxuefeng.com","root":"/","images":"/images","scheme":"Mist","darkmode":true,"version":"8.27.0","exturl":false,"sidebar":{"position":"left","width_expanded":320,"width_dual_column":240,"display":"post","padding":18,"offset":12},"hljswrap":true,"codeblock":{"theme":{"light":"default","dark":"stackoverflow-dark"},"prism":{"light":"prism","dark":"prism-dark"},"copy_button":{"enable":false,"style":null},"fold":{"enable":false,"height":500},"language":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":"gitalk","storage":true,"lazyload":false,"nav":null,"activeClass":"gitalk"},"stickytabs":false,"motion":{"enable":true,"async":false,"duration":200,"transition":{"menu_item":"fadeInDown","post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"}}</script><script src="/js/config.js" defer></script>
 
-    <meta name="description" content="连接开发者、AI 与项目知识库：人工审核沉淀标准，知识库存储 Recipe + Snippet，AI 按规范生成代码。基于 SPM，打通 Xcode 补全与 Cursor 按需检索。">
+    <meta name="description" content="我写了一个工具，让 AI 写代码终于像「我们团队的人」写的了 这篇文章介绍我开发的开源项目 AutoSnippet——一个代码模式知识库，让 Cursor、Copilot 等 AI 助手按你团队的规范生成代码。">
 <meta property="og:type" content="article">
-<meta property="og:title" content="AutoSnippet-介绍说明">
+<meta property="og:title" content="AutoSnippet-将代码库中的模式提取为知识库">
 <meta property="og:url" content="https://gaoxuefeng.com/posts/c6f37db">
 <meta property="og:site_name" content="Gaoxuefeng&#39;s Blog">
-<meta property="og:description" content="连接开发者、AI 与项目知识库：人工审核沉淀标准，知识库存储 Recipe + Snippet，AI 按规范生成代码。基于 SPM，打通 Xcode 补全与 Cursor 按需检索。">
+<meta property="og:description" content="我写了一个工具，让 AI 写代码终于像「我们团队的人」写的了 这篇文章介绍我开发的开源项目 AutoSnippet——一个代码模式知识库，让 Cursor、Copilot 等 AI 助手按你团队的规范生成代码。">
 <meta property="og:locale" content="zh_CN">
-<meta property="og:image" content="https://cdn.jsdelivr.net/gh/GxFn/blog-images@main/2026-02-09-autosnippet-manual/20260205232116_66_167.png">
 <meta property="article:published_time" content="2026-02-08T17:42:37.000Z">
-<meta property="article:modified_time" content="2026-02-08T19:15:54.223Z">
+<meta property="article:modified_time" content="2026-02-22T15:25:05.223Z">
 <meta property="article:author" content="gaoxuefeng">
 <meta property="article:tag" content="iOS Swift JavaScript">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="https://cdn.jsdelivr.net/gh/GxFn/blog-images@main/2026-02-09-autosnippet-manual/20260205232116_66_167.png">
 
 
 <link rel="canonical" href="https://gaoxuefeng.com/posts/c6f37db.html">
 
 
-<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"zh-CN","comments":true,"permalink":"https://gaoxuefeng.com/posts/c6f37db","path":"posts/c6f37db.html","title":"AutoSnippet-介绍说明"}</script>
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"zh-CN","comments":true,"permalink":"https://gaoxuefeng.com/posts/c6f37db","path":"posts/c6f37db.html","title":"AutoSnippet-将代码库中的模式提取为知识库"}</script>
 
 <script class="next-config" data-name="calendar" type="application/json">""</script>
-<title>AutoSnippet-介绍说明 | Gaoxuefeng's Blog</title>
+<title>AutoSnippet-将代码库中的模式提取为知识库 | Gaoxuefeng's Blog</title>
   
 
 
@@ -127,7 +125,7 @@
       <div class="sidebar-panel-container">
         <!--noindex-->
         <div class="post-toc-wrap sidebar-panel">
-            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%BC%80%E5%8F%91%E8%80%85%E3%80%81AI-%E4%B8%8E%E7%9F%A5%E8%AF%86%E5%BA%93"><span class="nav-number">1.</span> <span class="nav-text">开发者、AI 与知识库</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%AE%89%E8%A3%85%E4%B8%8E%E5%BF%AB%E9%80%9F%E5%BC%80%E5%A7%8B"><span class="nav-number">2.</span> <span class="nav-text">安装与快速开始</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-%E5%AE%89%E8%A3%85-AutoSnippet"><span class="nav-number">2.1.</span> <span class="nav-text">1. 安装 AutoSnippet</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-%E5%9C%A8%E4%BD%A0%E7%9A%84%E9%A1%B9%E7%9B%AE%E4%B8%AD%E5%88%9D%E5%A7%8B%E5%8C%96"><span class="nav-number">2.2.</span> <span class="nav-text">2. 在你的项目中初始化</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-%E5%90%AF%E5%8A%A8-Dashboard"><span class="nav-number">2.3.</span> <span class="nav-text">3. 启动 Dashboard</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%A0%B8%E5%BF%83%E6%B5%81%E7%A8%8B"><span class="nav-number">3.</span> <span class="nav-text">核心流程</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E9%97%AD%E7%8E%AF"><span class="nav-number">3.1.</span> <span class="nav-text">闭环</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%BC%96%E8%BE%91%E5%99%A8%E5%86%85%E6%8C%87%E4%BB%A4"><span class="nav-number">4.</span> <span class="nav-text">编辑器内指令</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4"><span class="nav-number">5.</span> <span class="nav-text">常用命令</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%8F%AF%E9%80%89%E4%BE%9D%E8%B5%96"><span class="nav-number">6.</span> <span class="nav-text">可选依赖</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Swift-%E8%A7%A3%E6%9E%90%E5%99%A8%EF%BC%88%E5%8F%AF%E9%80%89%EF%BC%89"><span class="nav-number">6.1.</span> <span class="nav-text">Swift 解析器（可选）</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E9%85%8D%E7%BD%AE"><span class="nav-number">7.</span> <span class="nav-text">配置</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%9C%AF%E8%AF%AD"><span class="nav-number">8.</span> <span class="nav-text">术语</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#AutoSnippet-%E7%9B%AE%E5%BD%95%E4%B8%8E-Git"><span class="nav-number">9.</span> <span class="nav-text">AutoSnippet 目录与 Git</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%B8%BA%E4%BB%80%E4%B9%88%E6%8E%A8%E8%8D%90-Cursor"><span class="nav-number">10.</span> <span class="nav-text">为什么推荐 Cursor</span></a></li></ol></div>
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E6%88%91%E5%86%99%E4%BA%86%E4%B8%80%E4%B8%AA%E5%B7%A5%E5%85%B7%EF%BC%8C%E8%AE%A9-AI-%E5%86%99%E4%BB%A3%E7%A0%81%E7%BB%88%E4%BA%8E%E5%83%8F%E3%80%8C%E6%88%91%E4%BB%AC%E5%9B%A2%E9%98%9F%E7%9A%84%E4%BA%BA%E3%80%8D%E5%86%99%E7%9A%84%E4%BA%86"><span class="nav-number">1.</span> <span class="nav-text">我写了一个工具，让 AI 写代码终于像「我们团队的人」写的了</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E9%97%AE%E9%A2%98%EF%BC%9AAI-%E5%86%99%E7%9A%84%E4%BB%A3%E7%A0%81%E3%80%8C%E8%83%BD%E8%B7%91%E3%80%8D%E4%BD%86%E3%80%8C%E4%B8%8D%E5%AF%B9%E5%91%B3%E3%80%8D"><span class="nav-number">1.1.</span> <span class="nav-text">问题：AI 写的代码「能跑」但「不对味」</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%80%9D%E8%B7%AF%EF%BC%9A%E6%8A%8A%E5%9B%A2%E9%98%9F%E7%9A%84%E3%80%8C%E6%9A%97%E7%9F%A5%E8%AF%86%E3%80%8D%E5%8F%98%E6%88%90-AI-%E8%83%BD%E6%9F%A5%E7%9A%84%E7%9F%A5%E8%AF%86%E5%BA%93"><span class="nav-number">1.2.</span> <span class="nav-text">思路：把团队的「暗知识」变成 AI 能查的知识库</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%B8%89%E6%9D%A1%E5%91%BD%E4%BB%A4%E8%B7%91%E8%B5%B7%E6%9D%A5"><span class="nav-number">1.3.</span> <span class="nav-text">三条命令跑起来</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%AE%83%E4%B8%8D%E5%8F%AA%E6%98%AF%E3%80%8C%E6%8F%90%E7%A4%BA%E8%AF%8D%E5%B7%A5%E7%A8%8B%E3%80%8D"><span class="nav-number">1.4.</span> <span class="nav-text">它不只是「提示词工程」</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-%E7%9C%9F%E6%AD%A3%E7%90%86%E8%A7%A3%E4%BB%A3%E7%A0%81%E7%BB%93%E6%9E%84"><span class="nav-number">1.4.1.</span> <span class="nav-text">1. 真正理解代码结构</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-%E5%9B%9B%E5%B1%82%E6%A3%80%E7%B4%A2%EF%BC%8C%E4%B8%8D%E6%98%AF%E5%85%A8%E5%A1%9E%E8%BF%9B%E5%8E%BB"><span class="nav-number">1.4.2.</span> <span class="nav-text">2. 四层检索，不是全塞进去</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-%E6%9C%89-Token-%E9%A2%84%E7%AE%97%E6%8E%A7%E5%88%B6"><span class="nav-number">1.4.3.</span> <span class="nav-text">3. 有 Token 预算控制</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#4-Guard-%E2%80%94%E2%80%94-%E8%A7%84%E8%8C%83%E4%B8%8D%E6%AD%A2%E8%A6%81%E5%BB%BA%E8%AE%AE%EF%BC%8C%E8%BF%98%E8%A6%81%E6%A3%80%E6%9F%A5"><span class="nav-number">1.4.4.</span> <span class="nav-text">4. Guard —— 规范不止要建议，还要检查</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#IDE-%E6%B7%B1%E5%BA%A6%E9%9B%86%E6%88%90"><span class="nav-number">1.5.</span> <span class="nav-text">IDE 深度集成</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Cursor"><span class="nav-number">1.5.1.</span> <span class="nav-text">Cursor</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#VS-Code-Copilot"><span class="nav-number">1.5.2.</span> <span class="nav-text">VS Code (Copilot)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Xcode"><span class="nav-number">1.5.3.</span> <span class="nav-text">Xcode</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Dashboard-%E2%80%94%E2%80%94-%E4%B8%8D%E5%8F%AA%E6%98%AF%E4%B8%AA%E5%88%97%E8%A1%A8%E9%A1%B5"><span class="nav-number">1.6.</span> <span class="nav-text">Dashboard —— 不只是个列表页</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%9E%B6%E6%9E%84%E8%AE%BE%E8%AE%A1"><span class="nav-number">1.7.</span> <span class="nav-text">架构设计</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#AI-Provider-%E6%94%AF%E6%8C%81"><span class="nav-number">1.8.</span> <span class="nav-text">AI Provider 支持</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%B7%A8%E5%B9%B3%E5%8F%B0"><span class="nav-number">1.9.</span> <span class="nav-text">跨平台</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%92%8C%E7%8E%B0%E6%9C%89%E5%B7%A5%E5%85%B7%E7%9A%84%E5%8C%BA%E5%88%AB"><span class="nav-number">1.10.</span> <span class="nav-text">和现有工具的区别</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%9C%9F%E5%AE%9E%E4%BD%BF%E7%94%A8%E5%9C%BA%E6%99%AF"><span class="nav-number">1.11.</span> <span class="nav-text">真实使用场景</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%86%99%E5%9C%A8%E6%9C%80%E5%90%8E"><span class="nav-number">1.12.</span> <span class="nav-text">写在最后</span></a></li></ol></li></ol></div>
         </div>
         <!--/noindex-->
 
@@ -192,12 +190,12 @@
     </span>
 
     <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content="AutoSnippet-介绍说明 | Gaoxuefeng's Blog">
+      <meta itemprop="name" content="AutoSnippet-将代码库中的模式提取为知识库 | Gaoxuefeng's Blog">
       <meta itemprop="description" content="">
     </span>
       <header class="post-header">
         <h1 class="post-title" itemprop="name headline">
-          AutoSnippet-介绍说明
+          AutoSnippet-将代码库中的模式提取为知识库
         </h1>
 
         <div class="post-meta-container">
@@ -207,13 +205,19 @@
         <i class="far fa-calendar"></i>
       </span>
       <span class="post-meta-item-text">发表于</span>
-      
 
-      <time title="创建时间：2026-02-09 01:42:37 / 修改时间：03:15:54" itemprop="dateCreated datePublished" datetime="2026-02-09T01:42:37+08:00">2026-02-09</time>
+      <time title="创建时间：2026-02-09 01:42:37" itemprop="dateCreated datePublished" datetime="2026-02-09T01:42:37+08:00">2026-02-09</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">更新于</span>
+      <time title="修改时间：2026-02-22 23:25:05" itemprop="dateModified" datetime="2026-02-22T23:25:05+08:00">2026-02-22</time>
     </span>
 
   
-    <span id="/posts/c6f37db" class="post-meta-item leancloud_visitors" data-flag-title="AutoSnippet-介绍说明" title="阅读次数">
+    <span id="/posts/c6f37db" class="post-meta-item leancloud_visitors" data-flag-title="AutoSnippet-将代码库中的模式提取为知识库" title="阅读次数">
       <span class="post-meta-item-icon">
         <i class="far fa-eye"></i>
       </span>
@@ -228,266 +232,163 @@
     
     
     
-    <div class="post-body" itemprop="articleBody"><p>连接开发者、AI 与项目知识库：人工审核沉淀标准，知识库存储 Recipe + Snippet，AI 按规范生成代码。基于 SPM，打通 Xcode 补全与 Cursor 按需检索。</p>
+    <div class="post-body" itemprop="articleBody"><h1 id="我写了一个工具，让-AI-写代码终于像「我们团队的人」写的了"><a href="#我写了一个工具，让-AI-写代码终于像「我们团队的人」写的了" class="headerlink" title="我写了一个工具，让 AI 写代码终于像「我们团队的人」写的了"></a>我写了一个工具，让 AI 写代码终于像「我们团队的人」写的了</h1><blockquote>
+<p>这篇文章介绍我开发的开源项目 <a target="_blank" rel="noopener" href="https://github.com/GxFn/AutoSnippet">AutoSnippet</a>——一个代码模式知识库，让 Cursor、Copilot 等 AI 助手按你团队的规范生成代码。</p>
+</blockquote>
 <span id="more"></span>
 
 <hr>
-<h3 id="开发者、AI-与知识库"><a href="#开发者、AI-与知识库" class="headerlink" title="开发者、AI 与知识库"></a>开发者、AI 与知识库</h3><table>
-<thead>
-<tr>
-<th>角色</th>
-<th>职责</th>
-<th>能力</th>
-</tr>
-</thead>
-<tbody><tr>
-<td><strong>开发者</strong></td>
-<td>审核与决策；维护项目标准</td>
-<td>Dashboard 审核 Candidate，保存 Recipe；使用 Snippet 补全、<code>ass</code> 快捷联想或 <code>// as:search</code> 插入；运行 <code>asd embed</code>、<code>asd ui</code></td>
-</tr>
-<tr>
-<td><strong>Cursor Agent</strong></td>
-<td>按规范生成代码；检索与提交</td>
-<td>Skills 理解规范；MCP 按需检索、打开新建 Recipe 页；<code>autosnippet_submit_candidates</code> 批量提交候选供人工审核；不直接改 Knowledge</td>
-</tr>
-<tr>
-<td><strong>项目内 AI</strong></td>
-<td>提取、摘要、扫描、审查</td>
-<td><code>asd ais</code> 扫描；Use Copied Code 分析填充；Guard 审查；Dashboard RAG；深度扫描结果可算相似度。由 <code>.env</code> 配置</td>
-</tr>
-<tr>
-<td><strong>知识库</strong></td>
-<td>存储与提供项目标准</td>
-<td>Recipes、Snippets、语义向量索引；Guard、搜索、质量评估、相似度分析；两种 AI 的上下文均依赖此</td>
-</tr>
-</tbody></table>
-<hr>
-<h2 id="安装与快速开始"><a href="#安装与快速开始" class="headerlink" title="安装与快速开始"></a>安装与快速开始</h2><h3 id="1-安装-AutoSnippet"><a href="#1-安装-AutoSnippet" class="headerlink" title="1. 安装 AutoSnippet"></a>1. 安装 AutoSnippet</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install -g autosnippet</span><br></pre></td></tr></table></figure>
-
-<h3 id="2-在你的项目中初始化"><a href="#2-在你的项目中初始化" class="headerlink" title="2. 在你的项目中初始化"></a>2. 在你的项目中初始化</h3><p><strong>重要</strong>：在<strong>你的项目目录</strong>（不是 AutoSnippet 源码目录）执行：</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">cd</span> /path/to/your-project   <span class="comment"># 进入你的项目</span></span><br><span class="line"></span><br><span class="line">asd setup                  <span class="comment"># 一键初始化</span></span><br><span class="line">               <span class="comment"># ✅ 创建 AutoSnippet/ 目录和配置</span></span><br><span class="line">               <span class="comment"># ✅ 自动配置 VSCode (.vscode/settings.json)</span></span><br><span class="line">               <span class="comment"># ✅ 自动配置 Cursor (.cursor/mcp.json)</span></span><br><span class="line">               <span class="comment"># ✅ 放置 Recipe 模板</span></span><br></pre></td></tr></table></figure>
-
-<h3 id="3-启动-Dashboard"><a href="#3-启动-Dashboard" class="headerlink" title="3. 启动 Dashboard"></a>3. 启动 Dashboard</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">asd ui                     <span class="comment"># 启动 Dashboard + watch</span></span><br></pre></td></tr></table></figure>
-
-<p><code>asd ui</code> 会启动 Web 管理后台并后台 watch；首次运行若前端不存在会自动构建。浏览器会自动打开 Dashboard。</p>
-<p><img src="https://cdn.jsdelivr.net/gh/GxFn/blog-images@main/2026-02-09-autosnippet-manual/20260205232116_66_167.png" alt="Dashboard 概览"></p>
-<h2 id="核心流程"><a href="#核心流程" class="headerlink" title="核心流程"></a>核心流程</h2><p><strong>智能 AI 优先 → 前端操作 → 命令行补充</strong></p>
-<ol>
-<li><strong>Cursor AI 快捷扫描</strong>（推荐）：在 Cursor 中输入自然语言（如「扫描这个 Target」、「批量提取代码候选」），AI 智能触发 <code>autosnippet-batch-scan</code> 等 Skill，通过 MCP 工具 <code>autosnippet_get_targets</code> → <code>autosnippet_get_target_files</code> → 按文件提取 → <code>autosnippet_submit_candidates</code> 一键批量扫描，自动提交候选到 Dashboard Candidates</li>
-<li><strong>前端审核与入库</strong>：Dashboard Candidates 页面人工审核 → 保存 Recipe 入库（优先前端操作，无需命令行）</li>
-<li><strong>依赖关系</strong>（可选）：Dashboard 刷新自动分析，或使用 <code>asd spm-map</code> 命令行更新</li>
-<li><strong>语义索引</strong>（自动）：<code>asd ui</code> 启动时自动 embed；也可手动 <code>asd embed</code></li>
-<li><strong>Cursor 集成</strong>（首次）：<code>asd install:cursor-skill --mcp</code>（安装 Skills + Cursor 规则 <code>.cursor/rules/</code> + MCP；MCP 工具使用时需 <code>asd ui</code> 运行）</li>
-</ol>
-<h3 id="闭环"><a href="#闭环" class="headerlink" title="闭环"></a>闭环</h3><p><strong>AI 扫描 → Dashboard 审核 → 知识库沉淀 → Cursor&#x2F;AI 按规范生成 → 再沉淀</strong>：Cursor AI 通过自然语言指令智能扫描并批量提交候选，完整代码通过 Skill 智能提交，开发者也可通过 Dashboard Use Copied Code 或剪切板提交候选，所有候选经 Dashboard 人工审核进入知识库；知识库内 Recipe 为第一公民，拥有最高优先级。</p>
-<p>Cursor 在编辑器内通过自然语言交互触发 Skill，使用 MCP 工具检索知识库，用 Recipe 作为生成代码的上下文标准；AI 生成的代码遵循 Recipe 规范，过审后成为新 Recipe，持续提升 AI 的开发标准化程度。</p>
-<p>知识库随人工审核持续更新，AI 始终基于最新上下文，Recipe 会在使用中获得评级调整。</p>
-<h2 id="编辑器内指令"><a href="#编辑器内指令" class="headerlink" title="编辑器内指令"></a>编辑器内指令</h2><p>需先运行 <code>asd watch</code> 或 <code>asd ui</code>。在源码中写入并保存：</p>
-<table>
-<thead>
-<tr>
-<th>指令</th>
-<th>作用</th>
-</tr>
-</thead>
-<tbody><tr>
-<td><code>ass</code> &#x2F; <code>// as:search</code> [关键词]</td>
-<td>从知识库检索并插入 Recipe&#x2F;Snippet；<code>ass</code> 是最快捷的联想方式，优先推荐</td>
-</tr>
-<tr>
-<td><code>asc</code> &#x2F; <code>// as:create</code></td>
-<td>无选项时只打开 Dashboard（路径已填），由用户点 Scan File 或 Use Copied Code。<code>-c</code> 强制用剪切板（静默创建或打开）；<code>-f</code> 强制用路径（打开 Dashboard 并自动执行 Scan File）</td>
-</tr>
-<tr>
-<td><code>asa</code> &#x2F; <code>// as:audit</code> [关键词或规模]</td>
-<td>按知识库 AI 审查；无后缀时仅检查当前文件；后缀 <strong>file</strong> &#x2F; <strong>target</strong> &#x2F; <strong>project</strong> 可扩大范围（target&#x3D;当前 Target 内所有源文件，project&#x3D;项目内所有源文件）；其他为检索关键词</td>
-</tr>
-<tr>
-<td><code>// as:include</code> &#x2F; <code>// as:import</code></td>
-<td>Snippet 内头文件&#x2F;模块标记，保存时自动注入</td>
-</tr>
-</tbody></table>
-<p><strong>Snippet 生效</strong>：<code>ass</code>、<code>asc</code>、<code>asa</code> 是 Xcode Snippet，需要执行 <code>asd setup</code> 将其注册到 Xcode 后，<strong>彻底关闭 Xcode 并重启</strong>才能生效。重启后在源码中输入首字母即可触发自动完成菜单。<br><strong>静默候选</strong>：在 Cursor 内用户提出保存案例，Cursor 生成草案；后台用草案静默创建候选，无需打开浏览器，到 Dashboard <strong>Candidates</strong> 页审核即可。在 Xcode 等编辑器内也可写 <code>asc -c</code>、复制代码后保存，剪贴板内容同样静默入库。<br><strong>快捷联想</strong>：输入 <code>ass</code>（AutoSnippet Search）触发 Snippet 快捷联想，或使用 <code>// as:search</code> &#x2F; <code>// as:s</code> 在编辑器内弹窗选择，即选即插，无需跳转 Dashboard，不打断当前编辑。</p>
-<h2 id="常用命令"><a href="#常用命令" class="headerlink" title="常用命令"></a>常用命令</h2><table>
-<thead>
-<tr>
-<th>命令</th>
-<th>说明</th>
-</tr>
-</thead>
-<tbody><tr>
-<td><code>asd setup</code></td>
-<td>初始化项目根（创建 AutoSnippet&#x2F;AutoSnippet.boxspec.json）</td>
-</tr>
-<tr>
-<td><code>asd ui</code></td>
-<td>启动 Dashboard + watch</td>
-</tr>
-<tr>
-<td><code>asd status</code></td>
-<td>环境自检（含项目根、AI、索引、Dashboard&#x2F;Watch、Native UI）</td>
-</tr>
-<tr>
-<td><code>asd create --clipboard</code></td>
-<td>从剪贴板创建 Recipe&#x2F;Snippet</td>
-</tr>
-<tr>
-<td><code>asd candidate</code></td>
-<td>从剪贴板创建候选（Dashboard 审核）</td>
-</tr>
-<tr>
-<td><code>asd extract</code> &#x2F; <code>asd e</code></td>
-<td>同步 Snippets 到 Xcode</td>
-</tr>
-<tr>
-<td><code>asd ais [Target]</code></td>
-<td>AI 扫描 Target → Candidates</td>
-</tr>
-<tr>
-<td><code>asd search [keyword] --copy</code></td>
-<td>搜索并复制第一条到剪贴板</td>
-</tr>
-<tr>
-<td><code>asd search [keyword] --pick</code></td>
-<td>交互选择后复制&#x2F;插入</td>
-</tr>
-<tr>
-<td><code>asd install:cursor-skill --mcp</code></td>
-<td>安装 Skills、Cursor 规则（<code>.cursor/rules/*.mdc</code>）并配置 MCP。配置时可运行；MCP 工具使用时需 <code>asd ui</code> 已启动</td>
-</tr>
-<tr>
-<td><code>asd install:full</code></td>
-<td>全量安装；<code>--parser</code> 含 Swift 解析器</td>
-</tr>
-<tr>
-<td><code>asd embed</code></td>
-<td>手动构建语义向量索引（<code>asd ui</code> 启动时也会自动执行）</td>
-</tr>
-<tr>
-<td><code>asd spm-map</code></td>
-<td>刷新 SPM 依赖映射（依赖关系图数据来源）</td>
-</tr>
-</tbody></table>
-<h2 id="可选依赖"><a href="#可选依赖" class="headerlink" title="可选依赖"></a>可选依赖</h2><h3 id="Swift-解析器（可选）"><a href="#Swift-解析器（可选）" class="headerlink" title="Swift 解析器（可选）"></a>Swift 解析器（可选）</h3><p>AutoSnippet 默认使用 <code>swift package dump-package</code> 解析 SPM 依赖。如需更准确的解析，可安装 Swift 解析器：</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">asd install:full --parser    <span class="comment"># 全量安装（含 Swift 解析器）</span></span><br></pre></td></tr></table></figure>
-
-<p>构建后会在 <code>tools/parse-package/.build/release/</code> 生成解析器，SPM 解析将更准确可靠。未安装时自动回退到 <code>dump-package</code>，功能正常。</p>
-<h2 id="配置"><a href="#配置" class="headerlink" title="配置"></a>配置</h2><ul>
-<li><strong>AI</strong>：项目根 <code>.env</code>，参考 <code>.env.example</code> 配置 <code>ASD_GOOGLE_API_KEY</code> 等。可选 <code>ASD_AI_PROVIDER</code>、代理等。</li>
-<li><strong>Native UI</strong>（可选）：macOS 上 <code>npm install</code> 会尝试构建 <code>resources/native-ui/native-ui</code>（需本机 Swift）；未构建时回退到 AppleScript&#x2F;inquirer，功能正常。</li>
-<li><strong>权限设置</strong>（可选）：写权限探针（在子仓库执行 <code>git push --dry-run</code>，通过才允许保存 Recipe&#x2F;Snippet，否则 403）+ 完整性校验（<code>asd</code> 启动前关键文件 SHA-256）。详见 <a href="docs/%E6%9D%83%E9%99%90%E8%AE%BE%E7%BD%AE%E8%AF%B4%E6%98%8E.md">权限设置说明</a>。</li>
-</ul>
-<h2 id="术语"><a href="#术语" class="headerlink" title="术语"></a>术语</h2><table>
-<thead>
-<tr>
-<th>术语</th>
-<th>说明</th>
-</tr>
-</thead>
-<tbody><tr>
-<td><strong>Recipe</strong></td>
-<td><code>AutoSnippet/recipes/</code> 下的 Markdown 知识（配方）：含代码块 + 使用说明，供 AI 检索、Guard、搜索，<strong>默认位置，用户可通过 boxspec <code>knowledgeBase.dir</code> 配置改成 <code>Knowledge/</code> 等</strong></td>
-</tr>
-<tr>
-<td><strong>Snippet</strong></td>
-<td>Xcode 代码片段，通过 trigger（默认 <code>@</code>）补全，可与 Recipe 关联</td>
-</tr>
-<tr>
-<td><strong>Candidate（候选）</strong></td>
-<td>待审核入库的项；来自 <code>as:create</code>、MCP 提交、<code>asd ais</code> 扫描等，经 Dashboard 审核后保存为 Recipe&#x2F;Snippet</td>
-</tr>
-<tr>
-<td><strong>Knowledge（AutoSnippet）</strong></td>
-<td>项目知识库目录，包含 <code>recipes/</code>、<code>.autosnippet/</code>（索引、candidates、guard 配置等）；Snippet 配置在 root spec 的 list 中。</td>
-</tr>
-<tr>
-<td><strong>Dashboard</strong></td>
-<td>Web 管理后台（<code>asd ui</code> 启动），含 Recipes、Candidates、Guard、Snippets 等页面</td>
-</tr>
-<tr>
-<td><strong>watch</strong></td>
-<td>文件监听进程（<code>asd ui</code> 或 <code>asd watch</code> 启动），保存时触发 <code>as:create</code>、<code>as:audit</code>、<code>as:search</code></td>
-</tr>
-<tr>
-<td><strong>Guard</strong></td>
-<td>按 Recipe 知识库对代码做 AI 审查；<code>// as:audit</code> 触发</td>
-</tr>
-<tr>
-<td><strong>embed</strong></td>
-<td>语义向量索引构建；<code>asd embed</code> 或 <code>asd ui</code> 启动时自动执行，供语义检索与 MCP 使用</td>
-</tr>
-<tr>
-<td><strong>MCP</strong></td>
-<td>Model Context Protocol；Cursor 通过 MCP 调用 <code>autosnippet_context_search</code> 等工具</td>
-</tr>
-<tr>
-<td><strong>Skills</strong></td>
-<td>Cursor Agent Skills（<code>.cursor/skills/</code>），描述何时用、如何用 AutoSnippet 能力</td>
-</tr>
-<tr>
-<td><strong>trigger</strong></td>
-<td>Snippet 触发前缀，默认 <code>@</code>，输入后 Xcode 联想补全</td>
-</tr>
-<tr>
-<td><strong>项目根</strong></td>
-<td>含 <code>AutoSnippetRoot.boxspec.json</code> 的目录</td>
-</tr>
-<tr>
-<td><strong>Target</strong></td>
-<td>SPM 模块&#x2F;编译单元；<code>asd ais &lt;Target&gt;</code> 扫描该 Target 下的源码提取候选</td>
-</tr>
-</tbody></table>
-<p><strong>详细介绍</strong>：启动 <code>asd ui</code> 后访问 Dashboard → <strong>使用说明</strong> 页；</p>
-<h2 id="AutoSnippet-目录与-Git"><a href="#AutoSnippet-目录与-Git" class="headerlink" title="AutoSnippet 目录与 Git"></a>AutoSnippet 目录与 Git</h2><p>AutoSnippet 下各路径与版本控制的关系建议如下（可按项目需要调整）：</p>
-<table>
-<thead>
-<tr>
-<th>路径</th>
-<th>说明</th>
-<th>建议</th>
-</tr>
-</thead>
-<tbody><tr>
-<td><strong>AutoSnippet&#x2F;recipes&#x2F;</strong></td>
-<td>Recipe 的 Markdown 文件</td>
-<td><strong>Git 子仓库</strong>：单独建远程仓库并 <code>git submodule add &lt;url&gt; AutoSnippet/recipes</code>，用于权限拦截（仅能 push 子仓库的人可保存&#x2F;上传 Recipe）。详见 <a href="docs/%E6%9D%83%E9%99%90%E8%AE%BE%E7%BD%AE%E8%AF%B4%E6%98%8E.md">权限设置说明</a> 中「只把 AutoSnippet&#x2F;recipes 作为子仓库」。</td>
-</tr>
-<tr>
-<td><strong>AutoSnippet&#x2F;.autosnippet&#x2F;</strong></td>
-<td>Guard 规则、违反记录、candidates、recipe-stats、context 配置等</td>
-<td><strong>跟随主仓库 Git</strong>：规则与配置建议提交到主仓库，便于团队共享。</td>
-</tr>
-<tr>
-<td><strong>AutoSnippet&#x2F;.autosnippet&#x2F;context&#x2F;index&#x2F;</strong></td>
-<td>语义向量索引（embed 生成）</td>
-<td><strong>不跟随 Git</strong>：体积大、机器相关，建议加入 <code>.gitignore</code>（如 <code>AutoSnippet/.autosnippet/context/index/</code>）。</td>
-</tr>
-<tr>
-<td><strong>AutoSnippet&#x2F;.autosnippet&#x2F;candidates&#x2F;</strong>（若存在）</td>
-<td>候选数据等</td>
-<td>视需要：若仅本地缓存可不提交；若团队共享可跟随主仓库或单独子仓库。</td>
-</tr>
-<tr>
-<td><strong>AutoSnippet&#x2F;AutoSnippet.spmmap.json</strong>（若存在）</td>
-<td>SPM 依赖映射</td>
-<td><strong>跟随主仓库 Git</strong>：便于依赖关系图一致。</td>
-</tr>
-</tbody></table>
+<h2 id="问题：AI-写的代码「能跑」但「不对味」"><a href="#问题：AI-写的代码「能跑」但「不对味」" class="headerlink" title="问题：AI 写的代码「能跑」但「不对味」"></a>问题：AI 写的代码「能跑」但「不对味」</h2><p>用 Cursor 或 Copilot 写了大半年代码，我发现一个越来越严重的问题——<strong>AI 生成的代码永远不像我们团队写的</strong>。</p>
+<p>命名风格不一样，错误处理的方式不一样，架构分层不一样，甚至 import 的顺序都不一样。它写出来的东西从技术上是对的，但放到代码库里一眼就能看出「这不是我们的人写的」。</p>
+<p>结果就是两个选择：要么花时间重写 AI 的输出让它符合规范，要么在每次 Code Review 里反复解释同样的约定。时间长了，AI 带来的效率提升被改代码的成本吃掉了一大半。</p>
+<p>我想解决这个问题。</p>
+<h2 id="思路：把团队的「暗知识」变成-AI-能查的知识库"><a href="#思路：把团队的「暗知识」变成-AI-能查的知识库" class="headerlink" title="思路：把团队的「暗知识」变成 AI 能查的知识库"></a>思路：把团队的「暗知识」变成 AI 能查的知识库</h2><p>每个团队都有很多「心照不宣」的规范：</p>
 <ul>
-<li><strong>跟随主仓库 Git</strong>：由主项目 <code>git add/commit/push</code> 管理，所有人按主仓库权限读写。</li>
-<li><strong>Git 子仓库</strong>：<code>AutoSnippet/recipes</code> 为单独仓库（submodule），Recipe 上传（git push）由 Git 服务端权限拦截。配合 <code>.env</code> 中 <code>ASD_RECIPES_WRITE_DIR=AutoSnippet/recipes</code> 是为了保识管理员（有 push 权限者）能够正确提交 Recipe：探针目录与 Recipe 写入目录一致，保存后可正常推送。</li>
-<li><strong>不跟随 Git</strong>：在 <code>.gitignore</code> 中忽略，不提交、不推送。</li>
+<li>网络请求统一用哪个封装？超时怎么设？</li>
+<li>ViewModel 里状态管理用什么模式？</li>
+<li>日志怎么打？错误怎么向上透传？</li>
+<li>这个项目里 <code>Manager</code> 和 <code>Service</code> 的命名边界在哪？</li>
 </ul>
-<hr>
-<h2 id="为什么推荐-Cursor"><a href="#为什么推荐-Cursor" class="headerlink" title="为什么推荐 Cursor"></a>为什么推荐 Cursor</h2><p><strong>Cursor 优先</strong>的原因：</p>
+<p>这些东西写在 Wiki 里没人看，写在 Code Review 评论里随着 PR 沉底，存在每个老员工的脑子里随时可能流失。</p>
+<p><strong>AutoSnippet 做的事情就是：把这些知识从代码里提取出来，结构化存储，然后在 AI 写代码时自动喂给它。</strong></p>
+<p>流程很简单：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">你的代码 → AI 提取模式 → 你审核 → 知识库</span><br><span class="line">                                      ↓</span><br><span class="line">                        Cursor / Copilot / VS Code / Xcode</span><br><span class="line">                                      ↓</span><br><span class="line">                              AI 按你的规范生成代码</span><br></pre></td></tr></table></figure>
+
+<h2 id="三条命令跑起来"><a href="#三条命令跑起来" class="headerlink" title="三条命令跑起来"></a>三条命令跑起来</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">npm install -g autosnippet</span><br><span class="line"></span><br><span class="line"><span class="built_in">cd</span> your-project</span><br><span class="line">asd setup        <span class="comment"># 初始化工作空间 + 数据库 + IDE 配置</span></span><br><span class="line">asd coldstart    <span class="comment"># AI 扫描代码库，提取模式候选</span></span><br><span class="line">asd ui           <span class="comment"># 打开 Dashboard 审核</span></span><br></pre></td></tr></table></figure>
+
+<p><code>asd setup</code> 会自动检测你装了哪些 IDE（Cursor、VS Code、Trae、Qoder），配好 MCP 连接。<code>asd coldstart</code> 会从 14 个维度扫描你的代码——架构模式、命名风格、设计模式、最佳实践、事件流、错误处理……扫描完生成一堆 <strong>Candidate</strong>（候选），等你审核。</p>
+<p>打开 Dashboard，看到候选列表。每一条都是 AI 从你代码里提取出来的模式，有代码示例、使用说明、适用场景。你觉得好的，点通过，它就变成一条 <strong>Recipe</strong>（知识条目）进入知识库。觉得不好的就拒绝。</p>
+<p>从此以后，IDE 里的 AI 写代码之前会先查你的 Recipe。</p>
+<h2 id="它不只是「提示词工程」"><a href="#它不只是「提示词工程」" class="headerlink" title="它不只是「提示词工程」"></a>它不只是「提示词工程」</h2><p>我知道你在想什么——「这不就是把规范塞进 system prompt 吗」。不是的。</p>
+<p>AutoSnippet 做的事情比往 prompt 里塞文本复杂得多：</p>
+<h3 id="1-真正理解代码结构"><a href="#1-真正理解代码结构" class="headerlink" title="1. 真正理解代码结构"></a>1. 真正理解代码结构</h3><p>底层用 <strong>Tree-sitter</strong>（WASM 版本，不需要编译 C++）做 AST 解析，支持 9 种语言：JavaScript、TypeScript、Python、Swift、Objective-C、Java、Kotlin、Go、Ruby。不是正则匹配，是真的在解析语法树。</p>
+<p>项目里有 11 个 Discoverer 自动识别项目类型（Node 项目、Flutter 项目、Spring 项目、Rust 项目……），还有 17 个 Enhancement Pack 针对具体框架（React、Vue、Next.js、Django、FastAPI、Spring、Android、Go gRPC、LangChain……）加上额外的分析逻辑。</p>
+<h3 id="2-四层检索，不是全塞进去"><a href="#2-四层检索，不是全塞进去" class="headerlink" title="2. 四层检索，不是全塞进去"></a>2. 四层检索，不是全塞进去</h3><p>AI 问「网络请求怎么写」的时候，不是把整个知识库塞给它。搜索引擎有四层漏斗：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">关键词匹配 → BM25 评分 → 语义向量重排 → 多信号融合排序</span><br></pre></td></tr></table></figure>
+
+<p>先精确匹配，再语义理解，最后综合质量评分、使用频率、新鲜度等多个信号排出最相关的几条。支持中英文。</p>
+<h3 id="3-有-Token-预算控制"><a href="#3-有-Token-预算控制" class="headerlink" title="3. 有 Token 预算控制"></a>3. 有 Token 预算控制</h3><p>AI 的上下文窗口是有限的。AutoSnippet 有一个 <code>KnowledgeCompressor</code>，会根据当前情况动态压缩知识内容，确保在 token 预算内塞进最有价值的信息，而不是简单地截断。</p>
+<h3 id="4-Guard-——-规范不止要建议，还要检查"><a href="#4-Guard-——-规范不止要建议，还要检查" class="headerlink" title="4. Guard —— 规范不止要建议，还要检查"></a>4. Guard —— 规范不止要建议，还要检查</h3><p>提取出来的 Recipe 不仅用来「告诉 AI 怎么写」，还会衍生出 Guard 规则用来「检查代码有没有按规范写」。</p>
+<p>Guard 引擎内置了 50+ 规则，涵盖：</p>
 <ul>
-<li><strong>MCP &amp; Skills 完整支持</strong>：Cursor 对 MCP（Model Context Protocol）的集成完善，Skills 能够正常触发和运行，支持自然语言指令流畅地调用 <code>autosnippet_get_targets</code>、<code>autosnippet_get_target_files</code>、<code>autosnippet_submit_candidates</code> 等工具</li>
-<li><strong>候选提交体验流畅</strong>：整个从扫描 → 提取 → 提交的工作流无缝衔接，用户无需手动介入，一键完成批量操作</li>
-<li><strong>VSCode Copilot 限制</strong>：目前 VSCode Copilot 的 MCP 集成存在问题，无法直接调用 MCP 工具。降级方案是存储候选为 Draft（本地），然后通过 API 提交，增加了用户额外操作步骤</li>
+<li><strong>正确性</strong>：ObjC <code>dispatch_sync(main queue)</code> 死锁、Swift <code>DispatchQueue.main.sync</code> 死锁</li>
+<li><strong>安全性</strong>：<code>eval()</code>、SQL 注入、硬编码密钥</li>
+<li><strong>性能</strong>：循环内的不必要分配、Dart 的 <code>setState</code> 调用</li>
+<li><strong>风格</strong>：命名约定、代码组织方式</li>
 </ul>
-<p>建议优先在 Cursor 中使用 AutoSnippet；如需 VSCode Copilot 支持，欢迎 <a target="_blank" rel="noopener" href="https://github.com/GxFn/AutoSnippet/issues">Issue</a> 讨论降级方案的适配。</p>
+<p>可以接到 CI 流水线（<code>asd guard:ci</code>）和 git pre-commit hook（<code>asd guard:staged</code>），在代码合入前自动卡住不合规的。</p>
+<h2 id="IDE-深度集成"><a href="#IDE-深度集成" class="headerlink" title="IDE 深度集成"></a>IDE 深度集成</h2><p>AutoSnippet 通过 <a target="_blank" rel="noopener" href="https://modelcontextprotocol.io/">MCP（Model Context Protocol）</a> 和 IDE 通信。MCP 是 Anthropic 推出的开放协议，让 AI 模型能够访问外部工具和数据。</p>
+<p>共 16 个 MCP 工具：搜索知识库、浏览知识、Guard 检查、项目结构探查、知识创建、候选管理……IDE 里的 AI 可以按需调用这些工具。</p>
+<h3 id="Cursor"><a href="#Cursor" class="headerlink" title="Cursor"></a>Cursor</h3><p>效果最好的 IDE。除了 MCP，还支持：</p>
+<ul>
+<li><strong>Cursor Rules</strong>——把 Recipe 摘要写入 <code>.cursor/rules/</code>，AI 自动遵守</li>
+<li><strong>Agent Skills</strong>——20 个 Skill 包，AI 不只查知识库，还能扫描代码、创建候选、执行 Guard 检查</li>
+<li><strong>自然语言驱动</strong>——在 Cursor 里直接说「帮我提取一下 network 模块的规范」，AI 会自动调 MCP 完成</li>
+</ul>
+<h3 id="VS-Code-Copilot"><a href="#VS-Code-Copilot" class="headerlink" title="VS Code (Copilot)"></a>VS Code (Copilot)</h3><p>MCP Server + 自研 VS Code 扩展，支持：</p>
+<ul>
+<li><strong>CodeLens</strong>——在代码上方直接显示关联的 Recipe</li>
+<li><strong>文件指令</strong>——在代码里写 <code>// as:s network timeout</code> 自动搜索并插入相关知识</li>
+<li><strong>保存时检查</strong>——保存文件自动触发 Guard 审计</li>
+</ul>
+<h3 id="Xcode"><a href="#Xcode" class="headerlink" title="Xcode"></a>Xcode</h3><p>通过 <code>asd watch</code> 文件监听实现，支持文件指令检测、代码片段同步。</p>
+<h2 id="Dashboard-——-不只是个列表页"><a href="#Dashboard-——-不只是个列表页" class="headerlink" title="Dashboard —— 不只是个列表页"></a>Dashboard —— 不只是个列表页</h2><p><code>asd ui</code> 启动的 Dashboard 是一个功能完整的 Web 管理界面（React + Vite + Tailwind），包含：</p>
+<ul>
+<li><strong>Recipe 浏览器</strong>——搜索、过滤、查看完整知识条目</li>
+<li><strong>Candidate 审核台</strong>——审核 AI 扫描出来的候选，通过&#x2F;拒绝&#x2F;编辑</li>
+<li><strong>AI Chat</strong>——内置的 AI 对话，背后是一个 ReAct 推理引擎 + DAG 任务管线，支持 54 个内置工具</li>
+<li><strong>知识图谱</strong>——可视化展示知识之间的关联关系</li>
+<li><strong>Guard 报告</strong>——合规检查的可视化结果</li>
+<li><strong>模块探查器</strong>——浏览项目的模块结构和依赖关系</li>
+<li><strong>Wiki 生成</strong>——一键从知识库生成项目 Wiki</li>
+<li><strong>LLM 配置</strong>——在界面上切换 AI Provider，不用改 <code>.env</code></li>
+</ul>
+<h2 id="架构设计"><a href="#架构设计" class="headerlink" title="架构设计"></a>架构设计</h2><p>我花了很多心思在架构上。采用分层领域驱动设计（Layered DDD）：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">IDE 接入层       Cursor · VS Code · Trae · Qoder · Xcode · Dashboard</span><br><span class="line">                                     │</span><br><span class="line">                             MCP Server + HTTP API</span><br><span class="line">                                     │</span><br><span class="line">服务层           Search · Knowledge · Guard · Chat · Bootstrap · Wiki</span><br><span class="line">                                     │</span><br><span class="line">核心层           AST (9 lang) · KnowledgeGraph · RetrievalFunnel · QualityScorer</span><br><span class="line">                                     │</span><br><span class="line">基础设施层       SQLite · VectorStore · EventBus · AuditLog · DI Container (40+)</span><br></pre></td></tr></table></figure>
+
+<p>几个我比较满意的设计决策：</p>
+<ul>
+<li><strong>Markdown 是真相来源</strong>——Recipe 存为 Markdown 文件，SQLite 只是读缓存。数据库坏了 <code>asd sync</code> 重建，但 Markdown 文件能直接看、直接改、直接进 Git</li>
+<li><strong>无编译步骤</strong>——纯 JavaScript（ESM），不用 TypeScript 编译（Dashboard 除外）。Node.js ≥ 20 直接跑</li>
+<li><strong>WASM AST</strong>——<code>web-tree-sitter</code> 替代原生 <code>tree-sitter</code>，彻底摆脱 C++ 编译依赖，<code>npm install</code> 就能用</li>
+<li><strong>自研 DI 容器</strong>——40+ 服务的懒加载单例注入，不依赖任何外部 DI 框架。支持 AI Provider 热重载</li>
+<li><strong>宪法系统（RBAC）</strong>——三层权限架构：能力层（运行时探测）、角色层（IDE AI &#x2F; 内置 AI &#x2F; 开发者）、治理层（4 条硬规则）。确保 AI 不会在没有你确认的情况下删除数据或发布内容</li>
+</ul>
+<h2 id="AI-Provider-支持"><a href="#AI-Provider-支持" class="headerlink" title="AI Provider 支持"></a>AI Provider 支持</h2><p>不绑定任何一家。支持 Google Gemini、OpenAI、Claude、DeepSeek、Ollama（本地）。配多个 Key 会自动 fallback——Gemini 挂了切 OpenAI，OpenAI 挂了切 DeepSeek。</p>
+<p>甚至不配 AI 也能用——知识库本身不依赖 AI。你手动写 Recipe Markdown 文件，<code>asd sync</code> 进库，搜索和 Guard 照样工作。AI 只是让「从代码里提取模式」这一步自动化了。</p>
+<h2 id="跨平台"><a href="#跨平台" class="headerlink" title="跨平台"></a>跨平台</h2><p>最初是 macOS Only（因为有 Xcode 功能），3.0.9 版本做了一次深度跨平台审计，修复了 7 处 macOS 专属依赖：</p>
+<ul>
+<li>剪贴板操作：macOS <code>pbcopy</code> &#x2F; Linux <code>wl-copy</code> + <code>xclip</code> &#x2F; Windows PowerShell</li>
+<li>通知：macOS <code>osascript</code> &#x2F; Linux <code>notify-send</code> &#x2F; Windows UWP Toast</li>
+<li>IDE 发现：三个平台各自的路径探测</li>
+<li>路径解析：<code>readlink -f</code> → Node.js 原生 <code>fs.realpathSync()</code></li>
+</ul>
+<p>现在 macOS &#x2F; Linux &#x2F; Windows 都能用了（Xcode 功能除外）。</p>
+<h2 id="和现有工具的区别"><a href="#和现有工具的区别" class="headerlink" title="和现有工具的区别"></a>和现有工具的区别</h2><table>
+<thead>
+<tr>
+<th></th>
+<th>AutoSnippet</th>
+<th>ESLint &#x2F; Biome</th>
+<th>.cursorrules 手写</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>知识来源</td>
+<td>AI 从代码提取 + 人工审核</td>
+<td>手写规则</td>
+<td>手写</td>
+</tr>
+<tr>
+<td>覆盖范围</td>
+<td>架构&#x2F;模式&#x2F;惯例&#x2F;最佳实践</td>
+<td>语法&#x2F;格式</td>
+<td>自由文本</td>
+</tr>
+<tr>
+<td>维护方式</td>
+<td>持续从代码演化</td>
+<td>手动更新配置</td>
+<td>手动更新文件</td>
+</tr>
+<tr>
+<td>AI 交付</td>
+<td>MCP 协议自动推送</td>
+<td>不涉及 AI</td>
+<td>仅限 Cursor</td>
+</tr>
+<tr>
+<td>合规检查</td>
+<td>Guard (正则 + AST)</td>
+<td>有</td>
+<td>无</td>
+</tr>
+<tr>
+<td>多 IDE 支持</td>
+<td>Cursor&#x2F;VS Code&#x2F;Trae&#x2F;Qoder&#x2F;Xcode</td>
+<td>IDE 无关</td>
+<td>仅 Cursor</td>
+</tr>
+</tbody></table>
+<p><strong>AutoSnippet 不替代 ESLint</strong>，它们覆盖的层次不同。ESLint 管代码格式和语法规则，AutoSnippet 管「我们团队怎么写网络请求」「ViewModel 里状态怎么管」这种更高层的东西。</p>
+<h2 id="真实使用场景"><a href="#真实使用场景" class="headerlink" title="真实使用场景"></a>真实使用场景</h2><p>我自己在几个项目上跑 AutoSnippet。举几个场景：</p>
+<p><strong>场景一：新人入职</strong></p>
+<p>新人 clone 代码后跑 <code>asd setup &amp;&amp; asd coldstart</code>，知识库自动建好了。在 Cursor 里写代码的时候，AI 直接按团队规范生成。以前新人需要一两周摸索的「团队暗知识」，现在第一天就能用上。</p>
+<p><strong>场景二：大型重构</strong></p>
+<p>重构前先 <code>asd guard:ci</code> 生成合规报告，看看哪些模块偏离了规范。重构过程中 Guard 实时检查，确保新代码符合模式。重构完再扫描一遍，把新模式沉淀进知识库。</p>
+<p><strong>场景三：跨模块开发</strong></p>
+<p>你要改一个不熟的模块。在 Cursor 里问「这个模块的错误处理规范是什么」，MCP 自动搜索知识库返回相关 Recipe，附带代码示例和使用指南。不用翻 Wiki，不用问人。</p>
+<h2 id="写在最后"><a href="#写在最后" class="headerlink" title="写在最后"></a>写在最后</h2><p>AutoSnippet 解决的核心问题是：<strong>AI 编码助手缺乏团队上下文</strong>。</p>
+<p>它不是另一个 prompt 模板工具，而是一个完整的知识管理基础设施——从提取、审核、存储、检索到交付的全链路。</p>
+<p>项目开源（MIT），欢迎试用和反馈：</p>
+<ul>
+<li><strong>GitHub</strong>: <a target="_blank" rel="noopener" href="https://github.com/GxFn/AutoSnippet">github.com&#x2F;GxFn&#x2F;AutoSnippet</a></li>
+<li><strong>npm</strong>: <code>npm install -g autosnippet</code></li>
+<li><strong>文档</strong>: 项目内 <code>docs/</code> 目录有完整的架构设计、CLI 参考、配置指南、IDE 集成说明</li>
+</ul>
+<p>如果你的团队也被 AI 生成代码「不合规范」困扰，试试看。三条命令就能跑起来。</p>
 <hr>
-<p>欢迎 <a target="_blank" rel="noopener" href="https://github.com/GxFn/AutoSnippet/issues">Issue</a> 与 <a target="_blank" rel="noopener" href="https://github.com/GxFn/AutoSnippet/pulls">PR</a>。MIT 许可证。</p>
+<p><em>作者：gaoxuefeng</em><br><em>项目版本：v3.0.x</em><br><em>License: MIT</em></p>
 
     </div>
 
