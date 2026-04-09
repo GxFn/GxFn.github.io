@@ -12,4 +12,4 @@ title: "About"
 ### 联系方式
 
 - GitHub: [GxFn](https://github.com/GxFn)
-- Email: gaoxuefeng@hotmail.com
+- Email: gxf470001@163.com
