@@ -1,5 +1,6 @@
 export const SITE = {
   website: "https://gaoxuefeng.com/",
+  book: "https://docs.gaoxuefeng.com/",
   author: "Gao Xuefeng",
   profile: "https://github.com/GxFn",
   desc: "Software engineer. Builder of AutoSnippet.",
