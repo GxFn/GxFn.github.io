@@ -1,9 +1,9 @@
 ---
 author: Gao Xuefeng
-pubDatetime: 2026-04-13T18:00:00+08:00
+pubDatetime: 2026-04-13T12:00:00+08:00
 title: Alamofire 源码里的设计课
 slug: alamofire-source-code-design
-featured: false
+featured: true
 draft: false
 tags:
   - Swift
