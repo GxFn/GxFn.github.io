@@ -184,7 +184,7 @@ v9 首条 prompt 约 20K tokens，信号质量受限于静态启发式。v10 的
 - 严格提交验证：16 个必填字段，3 层校验
 - 跨平台支持：macOS / Linux / Windows 全平台兼容
 - web-tree-sitter WASM 迁移：消除 C++ 编译依赖
-- 11 语言 AST 支持（Go/Python/Java/Kotlin/Swift/JS/TS/Rust/ObjC/Dart/C#）
+- 10 语言 AST 支持（Go/Python/Java/Kotlin/Swift/JS/TS/Rust/ObjC/Dart）
 - VS Code 扩展：Guard 实时诊断 + CodeAction 快速修复
 
 ### 思考与洞察
