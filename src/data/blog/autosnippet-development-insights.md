@@ -360,20 +360,3 @@ SignalCollector 不用 setInterval，用 setTimeout。AI 在响应中指定 `nex
 
 ### 主线六：确定性标记 + 概率性消解
 Guard 的 uncertain 上抛给 Agent 判断，Runtime 缺工具上抛给 Forge 锻造，KnowledgeCompressor 缺字段上抛给 AI 预计算。每个系统都是同一公理的实例：确定的事情确定性地做，不确定的事情结构化地上抛给更高层消解。
-
----
-
-## 数字回顾
-
-| 指标 | 数值 |
-|------|------|
-| 开发周期 | 2026-01-13 ~ 2026-04-13（约 3 个月） |
-| 版本迭代 | v1.0 → v3.4.2（~60+ 次版本发布） |
-| 代码文件 | 98+ → 持续增长 |
-| 单元测试 | 215+ |
-| 支持语言 | 10 种（Go/Python/Java/Kotlin/Swift/JS/TS/Rust/ObjC/Dart） |
-| Guard 规则 | 50+ |
-| MCP 工具 | 20+ |
-| 文档量 | docs-dev 下 400+ 个 .md 文件 |
-| 最大单日文档产出 | 123 个文件（02-03） |
-| 架构重大转变 | 3 次（V2 统一架构 / V3 MCP 平台化 / AI-First 删减） |
