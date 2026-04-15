@@ -1,6 +1,6 @@
 ---
 author: Gao Xuefeng
-pubDatetime: 2026-04-15T10:00:00+08:00
+pubDatetime: 2026-04-15T08:00:00+08:00
 title: 本地记忆主权：当 AI 平台争夺你的上下文
 slug: local-memory-sovereignty
 featured: true
