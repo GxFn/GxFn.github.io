@@ -3,7 +3,7 @@ export const SITE = {
   book: "https://docs.gaoxuefeng.com/",
   author: "Gao Xuefeng",
   profile: "https://github.com/GxFn",
-  desc: "Software engineer. Builder of AutoSnippet.",
+  desc: "Software engineer. Builder of Alembic.",
   title: "Gaoxuefeng's Blog",
   ogImage: "og.png",
   lightAndDarkMode: true,

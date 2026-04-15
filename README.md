@@ -37,6 +37,6 @@ description: 简短描述
 
 ## 相关项目
 
-- [AutoSnippet](https://github.com/GxFn/AutoSnippet) — AI 代码知识库
-- [AutoSnippet Book](https://docs.gaoxuefeng.com) — 技术架构深度解析
+- [Alembic](https://github.com/GxFn/Alembic) — AI 代码知识库
+- [Alembic Book](https://docs.gaoxuefeng.com) — 技术架构深度解析
 

@@ -7,7 +7,7 @@ title: "About"
 
 软件工程师 @ Baidu，北京。
 
-[AutoSnippet](https://github.com/GxFn/AutoSnippet) 作者 —— 一个 AI 驱动的知识管理系统，致力于让 AI Agent 更好地理解和遵循项目规范。
+[Alembic](https://github.com/GxFn/Alembic) 作者 —— 一个 AI 驱动的知识管理系统，致力于让 AI Agent 更好地理解和遵循项目规范。
 
 ### 联系方式
 
